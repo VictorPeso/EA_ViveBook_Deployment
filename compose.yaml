@@ -16,7 +16,7 @@ services:
   # 2. Tu Backend Node.js
   backend:
     # Sustituye "tu_usuario" por tu nombre real de Docker Hub: g5_univy
-    image: victorpk/vivebook-backend-ea:latest
+    image: victorpk/vivebook-backend-ea:v3.2
     container_name: vivebook_backend
     ports:
       - "1337:1337" # Mapeamos el puerto 1337 que usas en server.ts
