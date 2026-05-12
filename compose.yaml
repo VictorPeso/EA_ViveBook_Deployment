@@ -16,7 +16,7 @@ services:
   # 2. Tu Backend Node.js
   backend:
     # Sustituye "tu_usuario" por tu nombre real de Docker Hub: g5_univy
-    image: victorpk/vivebook-backend-ea:v3.7
+    image: victorpk/vivebook-backend-ea:v3.8
     container_name: vivebook_backend
     ports:
       - "1337:1337" # Mapeamos el puerto 1337 que usas en server.ts
@@ -32,7 +32,7 @@ services:
 
   # 3. La WebApp (React/Vite)
   web:
-    image: victorpk/vivebook-web-ea:v3.5
+    image: victorpk/vivebook-web-ea:v3.10
     container_name: vivebook_web
     ports:
       - "80:80" # Tu web se verá en http://localhost  
@@ -47,7 +47,7 @@ services:
     image: victorpk/vivebook-backoffice-ea:v3.2
     container_name: vivebook_backoffice
     ports:
-      - "9000:80" # Tu backoffice se verá en http://localhost:9000
+      - "8080:4000" # Tu backoffice se verá en http://localhost:4000
     depends_on:
       - backend
     networks:
