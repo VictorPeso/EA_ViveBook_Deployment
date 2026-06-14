@@ -45,7 +45,7 @@ services:
     image: victorpk/vivebook-backoffice-ea:latest
     container_name: vivebook_backoffice
     ports:
-      - "8080:4000" # Tu backoffice se verá en http://localhost:4000
+      - "8080:80" # Tu backoffice se verá en http://localhost:8080
     depends_on:
       - backend
     networks:
