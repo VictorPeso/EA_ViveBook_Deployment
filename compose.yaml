@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # 1. La Base de Datos (Imagen oficial)
   mongodb:
@@ -16,7 +14,7 @@ services:
   # 2. Tu Backend Node.js
   backend:
     # Sustituye "tu_usuario" por tu nombre real de Docker Hub: g5_univy
-    image: victorpk/vivebook-backend-ea:v3.8
+    image: victorpk/vivebook-backend-ea:latest
     container_name: vivebook_backend
     ports:
       - "1337:1337" # Mapeamos el puerto 1337 que usas en server.ts
@@ -32,7 +30,7 @@ services:
 
   # 3. La WebApp (React/Vite)
   web:
-    image: victorpk/vivebook-web-ea:v3.10
+    image: victorpk/vivebook-web-ea:latest
     container_name: vivebook_web
     ports:
       - "80:80" # Tu web se verá en http://localhost  
@@ -44,7 +42,7 @@ services:
 
   # 4. El Backoffice (Angular)
   backoffice:
-    image: victorpk/vivebook-backoffice-ea:v3.2
+    image: victorpk/vivebook-backoffice-ea:latest
     container_name: vivebook_backoffice
     ports:
       - "8080:4000" # Tu backoffice se verá en http://localhost:4000
