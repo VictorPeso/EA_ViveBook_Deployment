@@ -22,10 +22,10 @@ services:
       - mongodb
     env_file:
       # Carga automáticamente las variables de tu .env
-      - .env 
+      - .env
     networks:
-      - backend_internal  # Para hablar con MongoDB
-      - frontend_net      # Para que web/backoffice lleguen al backend
+      - backend_internal # Para hablar con MongoDB
+      - frontend_net # Para que web/backoffice lleguen al backend
     restart: unless-stopped
 
   # 3. La WebApp (React/Vite)
@@ -33,7 +33,7 @@ services:
     image: victorpk/vivebook-web-ea:latest
     container_name: vivebook_web
     ports:
-      - "80:80" # Tu web se verá en http://localhost  
+      - "80:80" # Tu web se verá en http://localhost
     depends_on:
       - backend
     networks:
@@ -45,14 +45,14 @@ services:
     image: victorpk/vivebook-backoffice-ea:latest
     container_name: vivebook_backoffice
     ports:
-      - "8080:80" # Tu backoffice se verá en http://localhost:8080
+      - "8080:4000" # Tu backoffice se verá en http://localhost:8080
     depends_on:
       - backend
     networks:
       - frontend_net
     restart: unless-stopped
 
-# Declaramos el volumen para que Mongo no pierda datos si se apaga  
+# Declaramos el volumen para que Mongo no pierda datos si se apaga
 volumes:
   mongo_data:
 
@@ -60,6 +60,6 @@ volumes:
 networks:
   backend_internal:
     driver: bridge
-    internal: true   # <-- Clave: esta red NO tiene salida a internet ni al host
+    internal: true # <-- Clave: esta red NO tiene salida a internet ni al host
   frontend_net:
     driver: bridge
